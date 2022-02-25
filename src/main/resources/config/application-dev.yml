@@ -32,9 +32,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:file:./target/h2db/db/jhmnbe;DB_CLOSE_DELAY=-1
-    username: jhmnbe
-    password:
+    url: jdbc:postgresql://localhost:5432/jhmnbe
+    username: postgres
+    password: TPMaster_22
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -43,7 +43,7 @@ spring:
       # disable spring boot built-in h2-console since we start it manually with correct configuration
       enabled: false
   jpa:
-    database-platform: tech.jhipster.domain.util.FixedH2Dialect
+    database-platform: tech.jhipster.domain.util.FixedPostgreSQL10Dialect
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
